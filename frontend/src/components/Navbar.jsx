@@ -51,7 +51,7 @@ const Navbar = ({ setShowLogin }) => {
         <div className='flex items-center gap-5'>
           <CiSearch className='cursor-pointer' size={30} />
           {isLoggedIn && (
-            <Link to="/cart" className='relative'>
+            <Link to="/cart" className='relative' onClick={()=>setShowMobileMenu(false)}>
               <CiShoppingCart size={30} />
               {items.length > 0 && (
                 <span className='absolute -top-1 -right-1 bg-orange-500 text-white rounded-full px-1 text-xs'>
