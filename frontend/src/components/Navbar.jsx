@@ -90,14 +90,14 @@ const Navbar = ({ setShowLogin }) => {
         )}
         {isLoggedIn ? (
           <button
-            className='px-3 py-1 hover:bg-orange-600 border bg-orange-500 text-white rounded-full '
+            className='px-3 py-1 hover:bg-orange-600 md:block hidden border bg-orange-500 text-white rounded-full '
             onClick={handleLogout}
           >
             Sign Out
           </button>
         ) : (
           <button
-            className='px-3 py-1 hover:bg-orange-500 hover:text-white md:block hidden border rounded-full'
+            className='px-3 py-1 hover:bg-orange-500  hover:text-white md:block hidden border rounded-full'
             onClick={() => setShowLogin(true)}
           >
             Sign In
