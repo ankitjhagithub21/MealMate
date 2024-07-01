@@ -16,6 +16,7 @@ import LoadingPage from './pages/LoadingPage'
 import Contact from './pages/Contact'
 import Search from './pages/Search'
 import useFetchCategory from './hooks/useFetchCategory'
+import Order from './pages/Order'
 const App = () => {
   const [showLogin, setShowLogin] = useState(false)
   const loading = useFetchUser()
@@ -41,6 +42,7 @@ const App = () => {
               <Route path='/cart' element={<Cart />} />
               <Route path='/contact' element={<Contact />} />
               <Route path='/search' element={<Search />} />
+              <Route path='/order' element={<Order />} />
               <Route path='/*' element={<NotFound />} />
             </Routes>
             <Footer />
