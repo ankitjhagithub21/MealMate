@@ -1,13 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+
 
 const CartTotal = () => {
-    const items = useSelector(state=>state.cart.value)
-    const deliveryFee = 10
+    const items = useSelector(state => state.cart.value)
+    const deliveryFee = 0
 
-  const subtotal = items.reduce((acc, item) => acc + item.price , 0)
-  const total = subtotal + deliveryFee
+    const subtotal = items.reduce((acc, item) => acc + item.price, 0)
+    const total = subtotal + deliveryFee
     return (
         <div className="lg:w-1/2 w-full p-5">
             <h2 className="text-2xl font-bold mb-3">Cart Totals</h2>
@@ -23,7 +23,7 @@ const CartTotal = () => {
                 <p>Total</p>
                 <p>₹{total.toFixed(2)}</p>
             </div>
-          
+
         </div>
     )
 }

@@ -26,7 +26,7 @@ const Navbar = ({ setShowLogin }) => {
     document.body.style.overflow ="auto"
   }
   return (
-    <nav className='container py-3 md:px-5 px-2 mx-auto flex items-center justify-between'>
+    <nav className='container py-3 px-2 md:px-0 mx-auto flex items-center justify-between'>
       <Link className='md:text-3xl text-2xl z-20 font-bold text-orange-500' to="/">MealMate</Link>
 
       <ul className='md:flex hidden gap-3 items-center '>

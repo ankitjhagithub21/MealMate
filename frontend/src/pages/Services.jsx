@@ -4,7 +4,7 @@ import { CiAlarmOn, CiDeliveryTruck, CiPizza } from "react-icons/ci";
 const Services = () => {
    const services = [
       {
-         "title":"Fast Delivery",
+         "title":"Free Delivery",
          "icon":<CiDeliveryTruck/>
       },
       {

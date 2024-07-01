@@ -1,10 +1,12 @@
 const express = require('express')
 const verifyToken = require('../middlewares/auth')
-const { placeOrder } = require('../controllers/orderContoller')
+const { placeOrder, verifyOrder, userOrders } = require('../controllers/orderContoller')
 const orderRouter = express.Router()
 
 
-orderRouter.post("/",verifyToken,placeOrder)
+orderRouter.post("/place",verifyToken,placeOrder)
+orderRouter.post("/verify",verifyOrder)
+orderRouter.get("/all",verifyToken,userOrders)
 
 
 module.exports = orderRouter

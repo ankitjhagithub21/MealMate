@@ -17,10 +17,14 @@ import Contact from './pages/Contact'
 import Search from './pages/Search'
 import useFetchCategory from './hooks/useFetchCategory'
 import Order from './pages/Order'
+import Verify from './pages/Verify'
+import MyOrders from './pages/MyOrders'
+import { useSelector } from 'react-redux'
 const App = () => {
   const [showLogin, setShowLogin] = useState(false)
   const loading = useFetchUser()
   useFetchCategory()
+  const user = useSelector((state)=>state.auth.user)
   return (
     <>
       {
@@ -43,6 +47,8 @@ const App = () => {
               <Route path='/contact' element={<Contact />} />
               <Route path='/search' element={<Search />} />
               <Route path='/order' element={<Order />} />
+              <Route path='/verify' element={<Verify />} />
+              <Route path='/myorders' element={user ? <MyOrders/> : <Home />} />
               <Route path='/*' element={<NotFound />} />
             </Routes>
             <Footer />
