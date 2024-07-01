@@ -10,7 +10,14 @@ const useFetchCategory = () => {
          try{
             const res = await fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`);
             const data = await res.json()
-            dispatch(setCategories(data.categories))
+            const updatedCategory = data.categories.map((category) => {
+               return {
+                   idCategory: category.idCategory,
+                   strCategory: category.strCategory,
+                   strCategoryThumb: category.strCategoryThumb
+               };
+           });
+            dispatch(setCategories(updatedCategory))
          }catch(error){
             console.log(error)
          }

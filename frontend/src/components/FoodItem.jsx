@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaStar } from "react-icons/fa6";
 import { FaRegStar, FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart } from "../app/slices/cartSlice"
@@ -66,7 +65,7 @@ const FoodItem = ({ food }) => {
           loading='lazy'
         />
 
-        <button className='absolute bottom-24 right-2 text-orange-500 bg-white p-2 rounded-full' onClick={handleAddToCart}>
+        <button className='absolute top-2 right-2 text-orange-500 bg-white p-2 rounded-full' onClick={handleAddToCart}>
           {
             isInCart ?
               <SiTicktick /> :
@@ -75,19 +74,17 @@ const FoodItem = ({ food }) => {
         </button>
 
         <div className="py-3 px-3 rounded-b-xl">
-          <div className='flex items-center justify-between text-orange-500'>
+          <div className='flex items-center gap-1 justify-between text-orange-500'>
             <h2
               className="text-lg text-gray-800 hover:underline cursor-pointer"
               onClick={() => navigate(`/meal/${idMeal}`)}
             >
-              {strMeal.slice(0, 16)}
+              {strMeal}
             </h2>
-            <div className='flex gap-1'>
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaRegStar />
+            <div className='flex gap-0.5 justify-center items-center bg-green-700 text-white rounded-lg text-sm px-1'>
+              <span>4.2</span>
+              <FaRegStar size={12} />
+             
             </div>
           </div>
           <p className='text-orange-500 text-lg font-semibold '>

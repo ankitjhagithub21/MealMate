@@ -14,10 +14,12 @@ import useFetchUser from './hooks/useFetchUser'
 import NotFound from './pages/NotFound'
 import LoadingPage from './pages/LoadingPage'
 import Contact from './pages/Contact'
+import Search from './pages/Search'
+import useFetchCategory from './hooks/useFetchCategory'
 const App = () => {
   const [showLogin, setShowLogin] = useState(false)
   const loading = useFetchUser()
-
+  useFetchCategory()
   return (
     <>
       {
@@ -38,6 +40,7 @@ const App = () => {
               <Route path='/meal/:id' element={<FoodDetails />} />
               <Route path='/cart' element={<Cart />} />
               <Route path='/contact' element={<Contact />} />
+              <Route path='/search' element={<Search />} />
               <Route path='/*' element={<NotFound />} />
             </Routes>
             <Footer />
