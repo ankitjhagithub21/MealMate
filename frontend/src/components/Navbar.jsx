@@ -25,7 +25,7 @@ const Navbar = ({ setShowLogin }) => {
     <nav className='container py-3 md:px-5 px-2 mx-auto flex items-center justify-between'>
       <Link className='md:text-3xl text-2xl z-20 font-bold text-orange-500' to="/">MealMate</Link>
 
-      <ul className='md:flex hidden gap-3 items-center text-lg'>
+      <ul className='md:flex hidden gap-3 items-center '>
         {links.map((link, index) => (
           <Link
             to={`/${link}`}
@@ -63,14 +63,14 @@ const Navbar = ({ setShowLogin }) => {
         </div>
         {isLoggedIn ? (
           <button
-            className='px-3 py-1 hover:bg-orange-600 border bg-orange-500 text-white rounded-full text-lg'
+            className='px-3 py-1 hover:bg-orange-600 border bg-orange-500 text-white rounded-full'
             onClick={handleLogout}
           >
             Sign Out
           </button>
         ) : (
           <button
-            className='px-3 py-1 hover:bg-orange-500 hover:text-white border rounded-full text-lg'
+            className='px-3 py-1 hover:bg-orange-500 hover:text-white border rounded-full '
             onClick={() => {
               setShowLogin(true)
               setShowMobileMenu(false)
@@ -97,14 +97,14 @@ const Navbar = ({ setShowLogin }) => {
         )}
         {isLoggedIn ? (
           <button
-            className='px-3 py-1 hover:bg-orange-600 border bg-orange-500 text-white rounded-full text-lg'
+            className='px-3 py-1 hover:bg-orange-600 border bg-orange-500 text-white rounded-full '
             onClick={handleLogout}
           >
             Sign Out
           </button>
         ) : (
           <button
-            className='px-3 py-1 hover:bg-orange-500 hover:text-white border rounded-full text-lg'
+            className='px-3 py-1 hover:bg-orange-500 hover:text-white border rounded-full'
             onClick={() => setShowLogin(true)}
           >
             Sign In

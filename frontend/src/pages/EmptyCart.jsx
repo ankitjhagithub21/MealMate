@@ -2,9 +2,13 @@ import React from 'react'
 
 const EmptyCart = () => {
   return (
-    <div className=' w-full flex items-center justify-center bg-[#FFCA54]'>
+    <div className='w-full py-24 flex items-center justify-center text-center '>
        
-        <img src="https://cdn.dribbble.com/users/602333/screenshots/6305886/empty-cart_4x.png?resize=768x576&vertical=center" alt="" className='rounded-lg h-[60vh] object-cover object-center'/>
+       <div className='lg:w-1/2  w-full p-5'>
+       <img src="/empty-cart.avif" alt="empty-cart" width={250} className='mx-auto' />
+       <h2 className='text-2xl py-2 font-semibold'>Your cart is empty</h2>
+       <p>You can go to home page to view more restaurants.</p>
+       </div>
         
        
     </div>
