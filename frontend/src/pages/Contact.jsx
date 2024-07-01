@@ -55,7 +55,7 @@ const Contact = () => {
         <input type="text" placeholder='Your name'  name='username' className='px-4 py-2 border rounded-lg' value={formData.username} onChange={handleChange} required/>
         <input type="email" placeholder='Your email' name='email' className='px-4 py-2 border rounded-lg' value={formData.email} onChange={handleChange} required/>
       <textarea  name='message' rows={5} value={formData.message} className='px-4 py-2 border rounded-lg' onChange={handleChange} required></textarea>
-      <button type='submit' className='bg-green-500 hover:bg-green-600 px-4 py-2 text-white rounded-lg'>
+      <button type='submit' className='bg-orange-500 hover:bg-orange-600 px-4 py-2 text-white rounded-lg'>
         {
           loading ? 'Sending...' :'Send'
         }
@@ -64,7 +64,7 @@ const Contact = () => {
       </div>
       <div className='lg:w-1/2 w-full flex pt-10 flex-col justify-center items-center gap-5'>
         <div className='flex items-center gap-4'>
-          <div className='bg-green-400 text-white p-2 rounded-full'>
+          <div className='bg-orange-500 text-white p-2 rounded-full'>
             <CiMail size={30}/>
           </div>
           <div className='flex flex-col gap-1'>
@@ -75,7 +75,7 @@ const Contact = () => {
           
         </div>
         <div className='flex items-center gap-4'>
-          <div className='bg-green-400 text-white p-2 rounded-full'>
+          <div className='bg-orange-500 text-white p-2 rounded-full'>
             <CiLocationOn size={30}/>
           </div>
           <div className='flex flex-col gap-1'>
@@ -86,7 +86,7 @@ const Contact = () => {
           
         </div>
         <div className='flex items-center gap-4'>
-          <div className='bg-green-400 text-white p-2 rounded-full'>
+          <div className='bg-orange-500 text-white p-2 rounded-full'>
             <CiPhone size={30}/>
           </div>
           <div className='flex flex-col gap-1'>

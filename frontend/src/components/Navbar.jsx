@@ -48,19 +48,10 @@ const Navbar = ({ setShowLogin }) => {
             {link}
           </Link>
         ))}
-        <div className='flex items-center gap-5'>
-          <CiSearch className='cursor-pointer' size={30} />
-          {isLoggedIn && (
-            <Link to="/cart" className='relative' onClick={()=>setShowMobileMenu(false)}>
-              <CiShoppingCart size={30} />
-              {items.length > 0 && (
-                <span className='absolute -top-1 -right-1 bg-orange-500 text-white rounded-full px-1 text-xs'>
-                  {items.length}
-                </span>
-              )}
-            </Link>
-          )}
-        </div>
+       
+         
+        
+       
         {isLoggedIn ? (
           <button
             className='px-3 py-1 hover:bg-orange-600 border bg-orange-500 text-white rounded-full'
@@ -83,10 +74,12 @@ const Navbar = ({ setShowLogin }) => {
         )}
       </ul>
 
-      <div className='hidden items-center gap-2 md:flex'>
+      <div className='flex items-center gap-2 '>
+        <Link to={"/search"} className='md:relative absolute md:right-0 right-9'>
         <CiSearch className='cursor-pointer' size={23} />
+        </Link>
         {isLoggedIn && (
-          <Link to="/cart" className='relative'>
+          <Link to="/cart" className='md:relative absolute md:right-0 right-16'>
             <CiShoppingCart size={25} />
             {items.length > 0 && (
               <span className='absolute -top-1 -right-1 bg-orange-500 text-white rounded-full px-1 text-xs'>
@@ -104,7 +97,7 @@ const Navbar = ({ setShowLogin }) => {
           </button>
         ) : (
           <button
-            className='px-3 py-1 hover:bg-orange-500 hover:text-white border rounded-full'
+            className='px-3 py-1 hover:bg-orange-500 hover:text-white md:block hidden border rounded-full'
             onClick={() => setShowLogin(true)}
           >
             Sign In
