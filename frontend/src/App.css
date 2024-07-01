@@ -9,7 +9,6 @@ button {
   outline: none;
 }
 
-
 .header{
   background: url(https://img.freepik.com/free-vector/realistic-orange-splash-fruit_52683-65283.jpg?w=740&t=st=1719815398~exp=1719815998~hmac=99a41cae5648ec9ef6a80cf7349d35d0a0c572815b2c27922fcbe89c9ac6de69);
   background-size: cover;
@@ -35,29 +34,6 @@ button {
 
 }
 
-.card {
-  width: 10%;
-  height: 300px;
-  border-radius: 20px;
-  overflow: hidden;
-  transition: .5s;
-}
-
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-
-  cursor: pointer;
-
-
-}
-
-.card:hover {
-
-  width: 40%;
-}
 
 .menu img {
 
@@ -80,9 +56,3 @@ button {
   }
 }
 
-@media (max-width:768px) {
-  .card:hover {
-    width: 100%;
-    
-  }
-}

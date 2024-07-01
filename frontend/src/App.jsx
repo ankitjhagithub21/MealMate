@@ -13,6 +13,7 @@ import Services from './pages/Services'
 import useFetchUser from './hooks/useFetchUser'
 import NotFound from './pages/NotFound'
 import LoadingPage from './pages/LoadingPage'
+import Contact from './pages/Contact'
 const App = () => {
   const [showLogin, setShowLogin] = useState(false)
   const loading = useFetchUser()
@@ -35,7 +36,8 @@ const App = () => {
               <Route path='/menu' element={<Menu />} />
               <Route path='/services' element={<Services />} />
               <Route path='/meal/:id' element={<FoodDetails />} />
-              <Route path='cart' element={<Cart />} />
+              <Route path='/cart' element={<Cart />} />
+              <Route path='/contact' element={<Contact />} />
               <Route path='/*' element={<NotFound />} />
             </Routes>
             <Footer />
