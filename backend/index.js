@@ -4,6 +4,7 @@ const cors = require('cors')
 const connectDB = require('./db/conn')
 const userRouter = require('./routes/userRoutes')
 const cartRouter = require('./routes/cartRoutes')
+const contactRouter = require('./routes/contactRoutes')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -18,6 +19,7 @@ app.use(cors({
 
 app.use("/api/user",userRouter)
 app.use("/api/cart",cartRouter)
+app.use("/api/contact",contactRouter)
 
 
 app.get('/', (req, res) => {

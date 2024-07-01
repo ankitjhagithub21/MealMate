@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import { CiMail,CiLocationOn,CiPhone } from "react-icons/ci";
+import toast from "react-hot-toast"
 const Contact = () => {
   const initialData = {
     username:"",
     email:"",
     message:""
   }
+  const token = localStorage.getItem('token')
   const [formData,setFormData] = useState(initialData)
+  const [loading,setLoading] = useState(false)
 
   const handleChange = (e) =>{
     const {name,value} = e.target;
@@ -17,8 +20,32 @@ const Contact = () => {
   }
   const handleSubmit = async(e)=>{
   e.preventDefault()
+    if(!token){
+      return toast.error("Please login.")
+    }
+    try{
+      setLoading(true)
+      const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/contact/add`,{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+          "authorization":`Bearer ${token}`
+        },
+        body:JSON.stringify(formData)
+      })
+      const data = await res.json()
 
-  console.log(formData)
+      if(data.success){
+        toast.success(data.message)
+        setFormData(initialData)
+      }else{
+        toast.error(data.message)
+      }
+    }catch(error){
+      toast.error("Network error.")
+    }finally{
+      setLoading(false)
+    }
   }
   return (
     <div className='container px-5 py-24 mx-auto flex flex-wrap items-center '>
@@ -28,7 +55,11 @@ const Contact = () => {
         <input type="text" placeholder='Your name'  name='username' className='px-4 py-2 border rounded-lg' value={formData.username} onChange={handleChange} required/>
         <input type="email" placeholder='Your email' name='email' className='px-4 py-2 border rounded-lg' value={formData.email} onChange={handleChange} required/>
       <textarea  name='message' rows={5} value={formData.message} className='px-4 py-2 border rounded-lg' onChange={handleChange} required></textarea>
-      <button type='submit' className='bg-green-500 hover:bg-green-600 px-4 py-2 text-white rounded-lg'>Send</button>
+      <button type='submit' className='bg-green-500 hover:bg-green-600 px-4 py-2 text-white rounded-lg'>
+        {
+          loading ? 'Sending...' :'Send'
+        }
+      </button>
        </form>
       </div>
       <div className='lg:w-1/2 w-full flex pt-10 flex-col justify-center items-center gap-5'>
