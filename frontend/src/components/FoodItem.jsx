@@ -10,7 +10,7 @@ import { SiTicktick } from "react-icons/si";
 const FoodItem = ({ food }) => {
   const { idMeal, strMealThumb, strMeal } = food;
   const navigate = useNavigate();
-  const [price, setPrice] = useState(Number(idMeal.slice(3, 5)))
+  const [price, setPrice] = useState(Number(idMeal.slice(1, 4)))
   const dispatch = useDispatch()
   const user = useSelector(state => state.auth.user)
   const cartItems = useSelector(state => state.cart.value)
@@ -57,11 +57,11 @@ const FoodItem = ({ food }) => {
 
 
   return (
-    <div className="lg:w-1/4 md:w-1/2 p-4 w-full header-content ">
-      <div className=' shadow-lg relative bg-gray-100 rounded-lg '>
+    <div className="lg:w-1/4 md:w-1/2 px-4 py-2 md:px-0 w-full header-content ">
+      <div className='relative '>
         <img
           alt="food"
-          className="object-cover object-center w-full h-48 rounded-t-lg"
+          className="object-cover object-center w-full h-48 "
           src={strMealThumb}
           loading='lazy'
         />
@@ -75,7 +75,7 @@ const FoodItem = ({ food }) => {
         </button>
 
         <div className="py-3 px-3 rounded-b-xl">
-          <div className='flex items-center justify-between text-orange-500 mb-2'>
+          <div className='flex items-center justify-between text-orange-500'>
             <h2
               className="text-lg text-gray-800 hover:underline cursor-pointer"
               onClick={() => navigate(`/meal/${idMeal}`)}
@@ -90,9 +90,9 @@ const FoodItem = ({ food }) => {
               <FaRegStar />
             </div>
           </div>
-          <b className='text-orange-500 text-xl '>
-            $ {price}
-          </b>
+          <p className='text-orange-500 text-lg font-semibold '>
+          ₹ {price}
+          </p>
         </div>
       </div>
     </div>

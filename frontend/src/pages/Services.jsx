@@ -9,7 +9,7 @@ const Services = () => {
    ]
   return (
    <section className="py-24">
-    <h2 className='text-center text-5xl md:text-3xl font-bold mb-5'>Our Services</h2>
+    <h2 className='text-center text-3xl md:text-5xl  font-bold mb-5'>Our Services</h2>
      <div className='my-5 flex px-5  mx-auto  gap-5 items-center justify-center'>
   
     {

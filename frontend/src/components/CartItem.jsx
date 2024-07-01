@@ -31,7 +31,7 @@ const CartItem = ({item}) => {
             </div>
 
             <div className="w-1/4">
-                <p>${price}</p>
+                <p>₹ {price}</p>
             </div>
             <div className="w-1/4">
                 1

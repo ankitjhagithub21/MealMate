@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Header = () => {
     return (
 
-        <div className='container mx-auto header rounded-lg'>
+        <div className='container mx-auto header rounded-lg md:px-0 px-2 '>
             <div className='overlay py-12 rounded-lg'>
             <div className='lg:w-1/2 px-5 w-full flex flex-col items-start  gap-3'>
                 <h1 className='md:text-5xl text-3xl font-semibold text-white header-content'>Order your</h1>

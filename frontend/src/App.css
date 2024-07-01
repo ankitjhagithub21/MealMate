@@ -10,10 +10,10 @@ button {
 }
 
 
-.header {
-  background: url(https://plus.unsplash.com/premium_photo-1705346738105-549c51234133?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+.header{
+  background: url(https://img.freepik.com/free-vector/realistic-orange-splash-fruit_52683-65283.jpg?w=740&t=st=1719815398~exp=1719815998~hmac=99a41cae5648ec9ef6a80cf7349d35d0a0c572815b2c27922fcbe89c9ac6de69);
   background-size: cover;
-
+  background-position: center;
 }
 
 .header-content {
@@ -21,7 +21,7 @@ button {
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .menu::-webkit-scrollbar {
