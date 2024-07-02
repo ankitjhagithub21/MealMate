@@ -13,7 +13,7 @@ const Navbar = ({ setShowLogin }) => {
   const currPath = location.pathname.slice(1) || "home";
   const isLoggedIn = useSelector(state => state.auth.user);
   const dispatch = useDispatch();
-  const [showProfile, setShowProfile] = useState(true)
+  const [showProfile, setShowProfile] = useState(false)
 
   const handleLogout = () => {
     dispatch(setUser(null));
