@@ -12,7 +12,6 @@ import { Toaster } from "react-hot-toast"
 import Services from './pages/Services'
 import useFetchUser from './hooks/useFetchUser'
 import NotFound from './pages/NotFound'
-import LoadingPage from './pages/LoadingPage'
 import Contact from './pages/Contact'
 import Search from './pages/Search'
 import useFetchCategory from './hooks/useFetchCategory'
@@ -20,6 +19,7 @@ import Order from './pages/Order'
 import Verify from './pages/Verify'
 import MyOrders from './pages/MyOrders'
 import { useSelector } from 'react-redux'
+import Loader from './components/Loader'
 const App = () => {
   const [showLogin, setShowLogin] = useState(false)
   const loading = useFetchUser()
@@ -28,7 +28,7 @@ const App = () => {
   return (
     <>
       {
-        loading ? <LoadingPage/> : <>
+        loading ? <Loader/> : <>
           {
             showLogin && <Login setShowLogin={setShowLogin} />
           }

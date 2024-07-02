@@ -59,7 +59,7 @@ const Order = () => {
   }
   return (
     <div className='container py-24 mx-auto flex flex-wrap-reverse'>
-      <div className="lg:w-1/2 w-full">
+      <div className="lg:w-1/2 w-full p-5">
         <h2 className='text-2xl mb-5 font-bold'>Delivery Information</h2>
         <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
           <div className='flex w-full gap-2'>

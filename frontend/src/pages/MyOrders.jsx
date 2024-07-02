@@ -12,7 +12,7 @@ const MyOrders = () => {
                     }
                 })
                 const data = await res.json()
-                console.log(data)
+             
                 if(data.success){
                     setOrders(data.orders)
                 }
