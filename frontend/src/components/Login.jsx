@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import toast from 'react-hot-toast'
+import { useDispatch } from 'react-redux'
+import { setUser } from '../app/slices/authSlice'
+import { setCart } from '../app/slices/cartSlice'
 
 
 const Login = ({setShowLogin}) => {
     const [currState,setCurrState] = useState("Login")
     const [loading,setLoading] = useState(false)
-    
+     const dispatch = useDispatch()
     const initialData = {
       fullName:"",
       email:"",
@@ -43,7 +46,10 @@ const Login = ({setShowLogin}) => {
 
         setData(initialData)
         localStorage.setItem('token',resData.token)
+        dispatch(setUser(resData.user))
+        dispatch(setCart(resData.user.cart))
         toast.success(resData.message)   
+        
         setShowLogin(false)
         
       }else{

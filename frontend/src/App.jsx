@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./App.css"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, useFetcher } from "react-router-dom"
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import FoodDetails from './pages/FoodDetails'
@@ -14,48 +14,45 @@ import useFetchUser from './hooks/useFetchUser'
 import NotFound from './pages/NotFound'
 import Contact from './pages/Contact'
 import Search from './pages/Search'
-import useFetchCategory from './hooks/useFetchCategory'
 import Order from './pages/Order'
 import Verify from './pages/Verify'
 import MyOrders from './pages/MyOrders'
 import { useSelector } from 'react-redux'
-import Loader from './components/Loader'
 const App = () => {
   const [showLogin, setShowLogin] = useState(false)
-  const loading = useFetchUser()
-  useFetchCategory()
-  const user = useSelector((state)=>state.auth.user)
+  const user = useSelector((state) => state.auth.user)
+  useFetchUser()
   return (
     <>
+
+
       {
-        loading ? <Loader/> : <>
-          {
-            showLogin && <Login setShowLogin={setShowLogin} />
-          }
-          <Toaster />
-          <BrowserRouter>
-
-            <Navbar setShowLogin={setShowLogin} />
-
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/home' element={<Home />} />
-              <Route path='/menu' element={<Menu />} />
-              <Route path='/services' element={<Services />} />
-              <Route path='/meal/:id' element={<FoodDetails />} />
-              <Route path='/cart' element={<Cart />} />
-              <Route path='/contact' element={<Contact />} />
-              <Route path='/search' element={<Search />} />
-              <Route path='/order' element={<Order />} />
-              <Route path='/verify' element={<Verify />} />
-              <Route path='/myorders' element={user ? <MyOrders/> : <Home />} />
-              <Route path='/*' element={<NotFound />} />
-            </Routes>
-            <Footer />
-          </BrowserRouter>
-        </>
+        showLogin && <Login setShowLogin={setShowLogin} />
       }
+      <Toaster />
+      <BrowserRouter>
+
+        <Navbar setShowLogin={setShowLogin} />
+
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/menu' element={<Menu />} />
+          <Route path='/services' element={<Services />} />
+          <Route path='/meal/:id' element={<FoodDetails />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/search' element={<Search />} />
+          <Route path='/order' element={<Order />} />
+          <Route path='/verify' element={<Verify />} />
+          <Route path='/myorders' element={user ? <MyOrders /> : <Home />} />
+          <Route path='/*' element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
+
+
   )
 }
 

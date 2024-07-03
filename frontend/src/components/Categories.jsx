@@ -2,10 +2,12 @@
 import { useSelector } from 'react-redux'
 import Category from './Category'
 
+import useFetchCategory from '../hooks/useFetchCategory'
+
 
 
 const Categories = () => {
-    
+    useFetchCategory()
     const {categories} = useSelector(state=>state.food)
     
    

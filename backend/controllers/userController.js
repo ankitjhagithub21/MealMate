@@ -24,17 +24,23 @@ const register = async(req,res) =>{
         const salt = await bcrypt.genSalt(10)
         const hashedPassword = await bcrypt.hash(password,salt);
 
-        const newUser = new User({
+        let newUser = new User({
             fullName,
             email,
             password:hashedPassword
         })
 
-        const user = await newUser.save()
+        await newUser.save()
+
+        const user = {
+            fullName:newUser.fullName,
+            email:newUser.email,
+            cart:[]
+        } 
 
         const token = createToken(user._id)
-
-        res.json({success:true,token,message:"Account created."})
+        
+        res.json({success:true,token,message:"Account created.",user})
         
 
     }catch(error){
@@ -57,8 +63,12 @@ const login = async(req,res) =>{
         return res.json({success:false,message:"Wrong email or password."})
     }
     const token = createToken(userExist._id)
-
-    res.json({success:true,token,message:"Login successfull."})     
+    const user = {
+        fullName:userExist.fullName,
+        email:userExist.email,
+        cart:userExist.cart
+    }
+    res.json({success:true,token,message:"Login successfull.",user})     
 
     }catch(error){
         return res.json({success:false,message:"Error."})    

@@ -6,11 +6,11 @@ import { setCart } from "../app/slices/cartSlice";
 const useFetchUser = () => {
   const token = localStorage.getItem("token");
   const dispatch = useDispatch();
-  const [loading,setLoading] = useState(false)
+  const [setLoading] = useState(false)
   useEffect(() => {
     const getUserFromServer = async () => {
       try {
-        setLoading(true)
+      
         const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/user`, {
         
           headers: {
@@ -28,16 +28,14 @@ const useFetchUser = () => {
         }
       } catch (error) {
         console.error(error);
-      }finally{
-        setLoading(false)
       }
     };
     
     if (token) {
       getUserFromServer();
     }
-  }, [token, dispatch]);
-  return loading
+  }, [token]);
+ 
 };
 
 export default useFetchUser;

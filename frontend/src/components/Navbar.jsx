@@ -18,6 +18,7 @@ const Navbar = ({ setShowLogin }) => {
   const handleLogout = () => {
     dispatch(setUser(null));
     localStorage.removeItem('token');
+    setShowProfile(false)
     toast.success("Logout successful.");
   };
   if (showMobileMenu) {
